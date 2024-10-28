@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleC.css">
+    <title>Calcular Precio de Departamentos</title>
+    <style>
+        #resultados {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid bg-dark pt-3 d-none d-lg-block ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center text-light">
+                        <p><i class="fa fa-envelope mr-2"></i> alaniapomanick@gmail.com</p>
+                        <p class="text-body px-3">|</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i> +51 954 680 268</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-primary px-3" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-primary px-3" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-primary px-3" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-primary px-3" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-primary px-3" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <a href="" class="navbar-brand">
+                <h1 class="m-0 text-primary"><span class="text-light">INMO</span>PLUS</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-item nav-link text-light">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calcularPrecio.html" class="nav-item nav-link active">Cotizar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-item nav-link text-light">Paquetes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-item nav-link text-light">Paises</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="text-center mb-3">Cotizar</h4>
+                        <form id="precioForm">
+                            <div class="mb-3">
+                                <label for="ciudad" class="form-label">Ciudad: (Unica ubicacion disponible en su Pais)</label>
+                                <input id="ciudad" type="text" class="form-control" value="Huancayo" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="area" class="form-label">Área (m²):</label>
+                                <input id="area" type="number" class="form-control" placeholder="Ingrese el Área" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="habitaciones" class="form-label">N° de Habitaciones:</label>
+                                <input id="habitaciones" type="number" class="form-control" placeholder="Ingrese el Número de Habitaciones" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="planta" class="form-label">N° de Planta:</label>
+                                <input id="planta" type="number" class="form-control" placeholder="Ingrese el Número de Planta" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ascensor" class="form-label">Ascensor:</label>
+                                <select id="ascensor" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Sí</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exterior" class="form-label">Exterior:</label>
+                                <select id="exterior" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Sí</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">Estado:</label>
+                                <select id="estado" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Nuevo</option>
+                                    <option value="2">Usado</option>
+                                    <option value="3">Reformado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="centrico" class="form-label">Céntrico:</label>
+                                <select id="centrico" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Sí</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Calcular Precio</button>
+                        </form>
+                        <div id="resultados"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">INMO</span>PLUS</h1>
+                </a>
+                <p>Síguenos en nuestras redes sociales para estar al tanto de nuestras últimas propiedades y promociones. ¡Tu nuevo hogar te está esperando!</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Siguenos</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros Servicios</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Acerca de Nosotros</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paises</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Enlaces Utiles</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Acerca de Nosotros</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paises</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contactanos</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Av. La Paz 312 - Miraflores, Lima, Perú</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+51 954680268</p>
+                <p><i class="fa fa-envelope mr-2"></i>alaniapomanick@gmail.com</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Mas Informacion...</h6>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="correoelectronico@gmail.com">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-3">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">INMO PLUS</a>.Todos Lo Derechos Reservados.</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <p class="m-0 text-white-50">Desarrollado Por<a href="#">  Alania Poma Nick</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        var modelo = null;
+
+        (async () => {
+            console.log("Cargando modelo...");
+            modelo = await tf.loadLayersModel("model.json");
+            console.log("Modelo cargado.");
+        })();
+
+        document.getElementById("precioForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const ciudad = 0;
+            const area = parseFloat(document.getElementById("area").value);
+            const habitaciones = parseFloat(document.getElementById("habitaciones").value);
+            const planta = parseFloat(document.getElementById("planta").value);
+            const ascensor = parseInt(document.getElementById("ascensor").value);
+            const exterior = parseInt(document.getElementById("exterior").value);
+            const estado = parseInt(document.getElementById("estado").value);
+            const centrico = parseInt(document.getElementById("centrico").value);
+
+            if (modelo !== null) {
+                const tensor = tf.tensor2d([[ciudad, area, habitaciones, planta, ascensor, exterior, estado, centrico]]);
+                const prediccion = modelo.predict(tensor).dataSync()[0];
+                document.getElementById("resultados").innerHTML = `El precio estimado es: $${prediccion.toFixed(2)}`;
+            } else {
+                document.getElementById("resultados").innerHTML = "El modelo aún no está listo. Intente nuevamente en un momento.";
+            }
+        });
+    </script>
+</body>
+</html>
